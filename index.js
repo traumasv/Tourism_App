@@ -23,17 +23,7 @@ class EventList extends Component {
 
     render(){
         <div>
-            <table>
-                <tbody>
-                    {this.state.events.map((event, index) => (
-                        <tr key={index}>
-                        <td>
-                        {event}    
-                        </td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+            <h1>Hello</h1>
         </div>
 
     }
