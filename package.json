@@ -4,7 +4,8 @@
   "description": "Application for people to see what events are going around in East Village",
   "main": "index.js",
   "scripts": {
-    "test": "parcel build /index.js"
+    "test": "parcel build index.html",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",

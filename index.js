@@ -5,6 +5,7 @@ import 'babel-polyfill';
 
 class EventList extends Component {
     constructor(props){
+        super(props);
         this.state = {events:[]};
     }
 
@@ -22,18 +23,17 @@ class EventList extends Component {
     }
 
     render(){
-        <div>
-            <h1>Hello</h1>
-        </div>
-
+        return(
+            <div>
+                <h1>Hello</h1>
+            </div>
+        )
     }
 }
 
 class App extends Component {
-    constructor(props){
-        this.state = {}
-    }
     render(){
-        <EventList/>
+        return(<EventList/>);
     }
 }
+ReactDOM.render(<App/>, document.getElementById('root'));
