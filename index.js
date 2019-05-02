@@ -18,6 +18,7 @@ class EventList extends Component {
                 headers: {'Authorization': 'Bearer ' + apikey},
                 dataType: "json"
             });
+            console.log(events);
         }
         catch{
             console.log("Didn't get back JSON");
