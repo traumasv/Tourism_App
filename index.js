@@ -11,7 +11,7 @@ class EventList extends Component {
 
     async componentDidMount(){
         const apikey = process.env.YELP_API_KEY;
-        console.log(apikey);
+        console.log(apikey || "no key avail");
         try{
             const events = await $.ajax({
                 method: "GET",
