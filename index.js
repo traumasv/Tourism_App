@@ -10,8 +10,9 @@ class EventList extends Component {
     }
 
     async componentDidMount(){
+        const apikey = process.env.YELP_API_KEY;
+        console.log(apikey);
         try{
-            const apikey = process.env.YELP_API_KEY;
             const events = await $.ajax({
                 method: "GET",
                 url: "https://api.yelp.com/v3/events",
