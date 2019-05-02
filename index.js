@@ -11,9 +11,11 @@ class EventList extends Component {
 
     async componentDidMount(){
         try{
+            const apikey = process.env.YELP_API_KEY;
             const events = await $.ajax({
                 method: "GET",
                 url: "https://api.yelp.com/v3/events",
+                headers: {'Authorization': 'Bearer ' + apikey},
                 dataType: "json"
             });
         }
@@ -25,7 +27,11 @@ class EventList extends Component {
     render(){
         return(
             <div>
-                <h1>Hello</h1>
+                <table>
+                    <tbody>
+
+                    </tbody>
+                </table>
             </div>
         )
     }
