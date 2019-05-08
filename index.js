@@ -5,24 +5,6 @@ import 'babel-polyfill';
 import GoogleMapReact from 'google-map-react';
 import './stylesheet.css';
 
-// //For Local Deployment
-// let keybox = {};
-// let google_maps_key = '';
-// let yelp_key = '';
-
-// try{
-//     const fs = require('fs');
-//     const path = require('path');
-//     const fn = path.join(__dirname, 'config.json');
-//     const data = fs.readFileSync(fn);
-//     keybox = JSON.parse(data);
-//     google_maps_key = keybox.google_maps_api_key;
-//     yelp_key = keybox.yelp_api_key;
-// }
-// catch{
-//     console.log("No configuration file");
-// }
-
 
 
 //Parts taken from https://gist.github.com/SimonJThompson/c9d01f0feeb95b18c7b0
@@ -51,7 +33,7 @@ function kmToMiles(km) {return (km * 0.62137).toFixed(2);}
 class Event extends Component {
     constructor(props){
         super(props);
-        this.state = {name:'', time_start:'', time_end:'', distance:'', cost:'', lat:'', lng:'', isHidden:true};
+        this.state = {name:'', time:'', distance:'', cost:'', lat:'', lng:'', isHidden:true};
         this.toggleHidden = this.toggleHidden.bind(this);
     }
 
@@ -66,7 +48,7 @@ class Event extends Component {
             <div>
             <div className="event" style={{width:600, height:200, cursor:"pointer", border:"2px solid black", }} onClick={this.toggleHidden}>
                     <h2>Name: {this.props.name}</h2>
-                    <h3>Time: {this.props.time_start.split('T')[0] + ' ' + this.props.time_start.split('T')[1]} ~ {this.props.time_end.split('T')[0] + ' ' + this.props.time_end.split('T')[0]}</h3>
+                    <h3>Time: {this.props.time}</h3>
                     <h3>Distance: {this.props.distance} miles away</h3>
                     <h3>Cost: ${this.props.cost}</h3>
             </div>
@@ -82,7 +64,7 @@ class Event extends Component {
 class EventList extends Component {
     constructor(props){
         super(props);
-        this.state = {events:[], location: {}, isHidden: true, isLoading: true};
+        this.state = {events:[], location: {}, isHidden: false};
         this.getEvents = this.getEvents.bind(this);
     }
 
@@ -117,7 +99,8 @@ class EventList extends Component {
         }
 
         catch{
-            events = [{name: 'Yelp Server Failed to Respond', time_start:'', time_end:'', distance:0, cost: 0, latitude:0, longitude:0}];
+            console.log("Didn't get back a JSON response");
+            //events = [{name: 'Yelp Server Failed to Respond', time_start:'', time_end:'', distance:0, cost: 0, latitude:0, longitude:0}];
         }
     }
 
@@ -126,7 +109,7 @@ class EventList extends Component {
             navigator.geolocation.getCurrentPosition( function (position){
                 this.setState( {location: LatLong(position.coords.latitude, position.coords.longitude)} );
                 this.getEvents();
-                this.setState({isLoading: false});
+                this.setState({isHidden: true});
             }.bind(this)); 
         } else { 
             console.log("Geolocation is not supported by this browser.");
@@ -136,13 +119,12 @@ class EventList extends Component {
     render(){
         return(
             <div>
-                {!this.state.isLoading  && <div class="loader"></div>}
+                {!this.state.isHidden  && <div class="loader"></div>}
                 {this.state.events.map((event, index) => (
                 <div id={event.name} class="event">
                     <Event
                         name={event.name} 
-                        time_start={event.time_start}
-                        time_end={event.time_end}
+                        time={event.time_start + "~" + event.time_end}
                         distance={event.distance} 
                         cost={event.cost || 0} 
                         key={index}
