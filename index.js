@@ -93,12 +93,15 @@ class EventList extends Component {
         try{
             const now = new Date();
             const nowseconds = Math.floor(now.getTime() / 1000);
-            let query = "?location=east-village,new-york-city,ny&limit=10&sort_on=time_start&sort_by=asc&start_date=" + nowseconds;
+            let query = "?location=east-village,new-york-city,ny&radius=900&limit=10&sort_on=time_start&sort_by=asc&start_date=" + nowseconds;
             const response = await $.ajax({
                 method: "GET",
                 url: "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/events" + query,
                 headers: {"Authorization": "Bearer " + apikey},
-                dataType: "json"
+                dataType: "json",
+                headers: {
+                    "x-requested-with": "xhr" 
+                }
             });
 
             events = response.events;
