@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import 'babel-polyfill';
 import GoogleMapReact from 'google-map-react';
-import {WebView} from 'react-native';
 import './stylesheet.css';
 
 //For Local Deployment
@@ -64,7 +63,7 @@ class Event extends Component {
     render(){
         return (
             <div>
-            <div className="event" style={{width:600, height:200, cursor:"pointer", border:"2px solid black"}} onClick={this.toggleHidden}>
+            <div className="event" style={{width:600, height:200, cursor:"pointer", border:"2px solid black", }} onClick={this.toggleHidden}>
                     <h2>Name: {this.props.name}</h2>
                     <h3>Time: {this.props.time_start.split('T')[0] + ' ' + this.props.time_start.split('T')[1]} ~ {this.props.time_end.split('T')[0] + ' ' + this.props.time_end.split('T')[0]}</h3>
                     <h3>Distance: {this.props.distance} miles away</h3>
