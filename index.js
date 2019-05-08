@@ -5,22 +5,23 @@ import 'babel-polyfill';
 import GoogleMapReact from 'google-map-react';
 import './stylesheet.css';
 
-//For Local Deployment
-let keybox = {};
-let google_maps_key = '';
-let yelp_key = '';
-try{
-    const fs = require('fs');
-    const path = require('path');
-    const fn = path.join(__dirname, 'config.json');
-    const data = fs.readFileSync(fn);
-    keybox = JSON.parse(data);
-    google_maps_key = keybox.google_maps_api_key;
-    yelp_key = keybox.yelp_api_key;
-}
-catch{
-    console.log("No configuration file");
-}
+// //For Local Deployment
+// let keybox = {};
+// let google_maps_key = '';
+// let yelp_key = '';
+
+// try{
+//     const fs = require('fs');
+//     const path = require('path');
+//     const fn = path.join(__dirname, 'config.json');
+//     const data = fs.readFileSync(fn);
+//     keybox = JSON.parse(data);
+//     google_maps_key = keybox.google_maps_api_key;
+//     yelp_key = keybox.yelp_api_key;
+// }
+// catch{
+//     console.log("No configuration file");
+// }
 
 
 
