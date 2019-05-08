@@ -97,11 +97,8 @@ class EventList extends Component {
             const response = await $.ajax({
                 method: "GET",
                 url: "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/events" + query,
-                headers: {"Authorization": "Bearer " + apikey},
-                dataType: "json",
-                headers: {
-                    "x-requested-with": "xhr" 
-                }
+                headers: {"Authorization": "Bearer " + apikey, "x-requested-with": "xhr"},
+                dataType: "json"
             });
 
             events = response.events;
