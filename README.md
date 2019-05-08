@@ -5,6 +5,7 @@ This is an application for people to see what events are going around in East Vi
 
 ## How to use the website
 -click on the Event and the Map with the location will pop up!
+*** Make Sure that you have your location services are turned on! ***
 
 ## [Link to Deployed Website](https://whatsupineastvillage.herokuapp.com/)
 
@@ -19,7 +20,5 @@ This is an application for people to see what events are going around in East Vi
 
 ## Coming Soon:
 - Improve Visual of Website with Bootstrap
+- Improve load time by caching the Yelp API data
 - Error Messaging (Making sure that the client has location services turned on / help client turn it on)
-
-## Further Developments (Long Term Goals):
-- create an express server to cache the Yelp API data
