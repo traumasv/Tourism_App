@@ -92,13 +92,13 @@ class EventList extends Component {
 
         try{
             const now = new Date();
-            const nowseconds = Math.floor(now.getTime() / 1000); // need to round to integer
+            const nowseconds = Math.floor(now.getTime() / 1000);
             let query = "?location=east-village,new-york-city,ny&limit=10&sort_on=time_start&sort_by=asc&start_date=" + nowseconds;
             const response = await $.ajax({
                 method: "GET",
                 url: "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/events" + query,
                 headers: {"Authorization": "Bearer " + apikey},
-                dataType: "json"
+                dataType: "jsonp"
             });
 
             events = response.events;
@@ -117,7 +117,7 @@ class EventList extends Component {
         }
 
         catch{
-            events = 'Did not get back JSON';
+            console.log('Did not get back JSON');
         }
     }
 
