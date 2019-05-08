@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import 'babel-polyfill';
 import GoogleMapReact from 'google-map-react';
+import {WebView} from 'react-native';
 
 //For Local Deployment
 let keybox = {};
@@ -62,7 +63,7 @@ class Event extends Component {
     render(){
         return (
             <div>
-            <div style={{width:600, height:200}} onClick={this.toggleHidden}>
+            <div style={{width:600, height:200, cursor:"pointer"}} onClick={this.toggleHidden}>
                     <h2>Name: {this.props.name}</h2>
                     <h3>Time: {this.props.time}</h3>
                     <h3>Distance: {this.props.distance} miles away</h3>
@@ -137,7 +138,7 @@ class EventList extends Component {
                 <div id={event.name} class="event">
                     <Event
                         name={event.name} 
-                        time={event.time_start + " ~ " + event.time_end} 
+                        time={event.time_start.split('T')[0] + " " + event.time_start.split('T')[1] + " ~ " + event.time_end.split('T')[0] + " " + event.time_end.split('T')[1]} 
                         distance={event.distance} 
                         cost={event.cost || 0} 
                         key={index}
