@@ -51,7 +51,7 @@ function kmToMiles(km) {return (km * 0.62137).toFixed(2);}
 class Event extends Component {
     constructor(props){
         super(props);
-        this.state = {name:'',time:'',distance:'', cost:'', lat:'', lng:'', isHidden:true};
+        this.state = {name:'', time_start:'', time_end:'', distance:'', cost:'', lat:'', lng:'', isHidden:true};
         this.toggleHidden = this.toggleHidden.bind(this);
     }
 
@@ -64,9 +64,9 @@ class Event extends Component {
     render(){
         return (
             <div>
-            <div style={{width:600, height:200, cursor:"pointer", border:"2px solid black"}} onClick={this.toggleHidden}>
+            <div class="event" style={{width:600, height:200, cursor:"pointer", border:"2px solid black"}} onClick={this.toggleHidden}>
                     <h2>Name: {this.props.name}</h2>
-                    <h3>Time: {this.props.time}</h3>
+                    <h3>Time: {this.props.time_start.split('T')[0] + ' ' + this.props.time_start.split('T')[1]} ~ {this.props.time_end.split('T')[0] + ' ' + this.props.time_end.split('T')[0]}</h3>
                     <h3>Distance: {this.props.distance} miles away</h3>
                     <h3>Cost: ${this.props.cost}</h3>
             </div>
@@ -141,7 +141,8 @@ class EventList extends Component {
                 <div id={event.name} class="event">
                     <Event
                         name={event.name} 
-                        time={event.time_start.split('T')[0] + " " + event.time_start.split('T')[1] + " ~ " + event.time_end.split('T')[0] + " " + event.time_end.split('T')[1]} 
+                        time_start={event.time_start}
+                        time_end={event.time_end}
                         distance={event.distance} 
                         cost={event.cost || 0} 
                         key={index}
@@ -167,7 +168,7 @@ class SimpleMap extends Component {
         const apikey = process.env.GOOGLE_MAPS_API_KEY;
       return (
         // Important! Always set the container height explicitly
-        <div style={{ height: '100vh', width: '60%' }}>
+        <div style={{ height: '30%', width: '40%' }}>
           <GoogleMapReact
             bootstrapURLKeys={{key: apikey}}
             center={this.props.center}
