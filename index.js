@@ -98,7 +98,7 @@ class EventList extends Component {
                 method: "GET",
                 url: "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/events" + query,
                 headers: {"Authorization": "Bearer " + apikey},
-                dataType: "jsonp"
+                dataType: "json"
             });
 
             events = response.events;
@@ -117,7 +117,7 @@ class EventList extends Component {
         }
 
         catch{
-            console.log('Did not get back JSON');
+            events = [{name: 'Yelp Server Failed to Respond', time_start:'', time_end:'', distance:0, cost: 0, latitude:0, longitude:0}];
         }
     }
 
