@@ -4,6 +4,7 @@ import $ from 'jquery';
 import 'babel-polyfill';
 import GoogleMapReact from 'google-map-react';
 import {WebView} from 'react-native';
+import './stylesheet.css';
 
 //For Local Deployment
 let keybox = {};
@@ -63,7 +64,7 @@ class Event extends Component {
     render(){
         return (
             <div>
-            <div style={{width:600, height:200, cursor:"pointer"}} onClick={this.toggleHidden}>
+            <div style={{width:600, height:200, cursor:"pointer", border:"2px solid black"}} onClick={this.toggleHidden}>
                     <h2>Name: {this.props.name}</h2>
                     <h3>Time: {this.props.time}</h3>
                     <h3>Distance: {this.props.distance} miles away</h3>
@@ -81,7 +82,7 @@ class Event extends Component {
 class EventList extends Component {
     constructor(props){
         super(props);
-        this.state = {events:[], location: {}, isHidden: true};
+        this.state = {events:[], location: {}, isHidden: true, isLoading: true};
         this.getEvents = this.getEvents.bind(this);
     }
 
@@ -125,6 +126,7 @@ class EventList extends Component {
             navigator.geolocation.getCurrentPosition( function (position){
                 this.setState( {location: LatLong(position.coords.latitude, position.coords.longitude)} );
                 this.getEvents();
+                this.setState({isLoading: false});
             }.bind(this)); 
         } else { 
             console.log("Geolocation is not supported by this browser.");
@@ -134,6 +136,7 @@ class EventList extends Component {
     render(){
         return(
             <div>
+                {!this.state.isLoading  && <div class="loader"></div>}
                 {this.state.events.map((event, index) => (
                 <div id={event.name} class="event">
                     <Event
