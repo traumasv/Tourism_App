@@ -7,6 +7,7 @@ This is an application for people to see what events are going around in East Vi
 (the deployment is not running currently due to heroku deployment issues [config vars not showing])
 
 -click on the Event and the Map with the location will pop up!
+
 *** Make Sure that you have your location services are turned on! ***
 
 # How to Deploy Locally
@@ -16,10 +17,10 @@ This is an application for people to see what events are going around in East Vi
 4. ``` npm run test ``` (to build with Parcel)
 5. ``` npm run start ``` (to build run express)
 
-## [Link to Deployed Website](https://whatsupineastvillage.herokuapp.com/)
+[Link to Deployed Website](https://whatsupineastvillage.herokuapp.com/)
 
-# [Wireframe](https://docs.google.com/document/d/1BDCdZA4ewYOwiy5oX22tFIT31OnX4XFlcClIpfScE-0/edit?usp=sharing)
-# [Site Map](https://docs.google.com/drawings/d/18bldMvCOfeZZasUu2jpNd1i24B6fxa2MLSWLfDd0fiU/edit?usp=sharing)
+[Wireframe](https://docs.google.com/document/d/1BDCdZA4ewYOwiy5oX22tFIT31OnX4XFlcClIpfScE-0/edit?usp=sharing)
+[Site Map](https://docs.google.com/drawings/d/18bldMvCOfeZZasUu2jpNd1i24B6fxa2MLSWLfDd0fiU/edit?usp=sharing)
 
 ## Resources Used:
 1. Parcel Package Manager
