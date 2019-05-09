@@ -3,7 +3,9 @@
 # Overview
 This is an application for people to see what events are going around in East Village (or further away in NYC area)
 
-# How to use the website (the deployment is not running currently due to heroku deployment issues [config vars not showing])
+# How to use the website 
+(the deployment is not running currently due to heroku deployment issues [config vars not showing])
+
 -click on the Event and the Map with the location will pop up!
 *** Make Sure that you have your location services are turned on! ***
 
