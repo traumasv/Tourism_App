@@ -71,7 +71,7 @@ class EventList extends Component {
     async getEvents(){
         const apikey = process.env.YELP_API_KEY;
         let events = [];
-
+        console.log(apikey);
         try{
             const now = new Date();
             const nowseconds = Math.floor(now.getTime() / 1000);
