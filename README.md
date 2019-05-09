@@ -1,6 +1,6 @@
-## Tourism_App
+# Tourism_App
 
-# Overview
+## Overview
 This is an application for people to see what events are going around in East Village (or further away in NYC area)
 
 # How to use the website 
