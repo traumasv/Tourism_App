@@ -69,7 +69,7 @@ class EventList extends Component {
     }
 
     async getEvents(){
-        const apikey = process.env.YELP_API_KEY;
+        const apikey = process.env.YELP_KEY;
         let events = [];
         console.log(apikey);
         try{
