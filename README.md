@@ -9,6 +9,13 @@ This is an application for people to see what events are going around in East Vi
 -click on the Event and the Map with the location will pop up!
 *** Make Sure that you have your location services are turned on! ***
 
+# How to Deploy Locally
+1. clone the project
+2. [Go to the following spot in the code and add your Yelp API Key](https://github.com/traumasv/Tourism_App/blob/e2efbf10cf874bebdf9f0e71e400dcdc254428c7/index.js#L72)
+3. [Go to the following spot in the code and add your Google Map API Key](https://github.com/traumasv/Tourism_App/blob/e2efbf10cf874bebdf9f0e71e400dcdc254428c7/index.js#L149)
+4. ``` npm run test ``` (to build with Parcel)
+5. ``` npm run start ``` (to build run express)
+
 ## [Link to Deployed Website](https://whatsupineastvillage.herokuapp.com/)
 
 # [Wireframe](https://docs.google.com/document/d/1BDCdZA4ewYOwiy5oX22tFIT31OnX4XFlcClIpfScE-0/edit?usp=sharing)
