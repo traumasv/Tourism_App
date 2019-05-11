@@ -5,7 +5,7 @@ import 'babel-polyfill';
 import GoogleMapReact from 'google-map-react';
 import './stylesheet.css';
 
-
+const yelpapikey = process.env.YELP_KEY;
 
 //Parts taken from https://gist.github.com/SimonJThompson/c9d01f0feeb95b18c7b0
 function toRad(v){return v * Math.PI / 180;}
@@ -69,7 +69,7 @@ class EventList extends Component {
     }
 
     async getEvents(){
-        const apikey = process.env.YELP_KEY;
+        
         let events = [];
         try{
             const now = new Date();
@@ -78,7 +78,7 @@ class EventList extends Component {
             const response = await $.ajax({
                 method: "GET",
                 url: "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/events" + query,
-                headers: {"Authorization": "Bearer " + apikey, "x-requested-with": "xhr"},
+                headers: {"Authorization": "Bearer " + yelpapikey, "x-requested-with": "xhr"},
                 dataType: "json"
             });
 
@@ -146,12 +146,12 @@ class SimpleMap extends Component {
     }
 
     render() {
-        const apikey = process.env.GOOGLE_MAPS_API_KEY;
+        const googleapikey = process.env.GOOGLE_MAPS_API_KEY;
       return (
         // Important! Always set the container height explicitly
         <div style={{ height: '30%', width: '40%' }}>
           <GoogleMapReact
-            bootstrapURLKeys={{key: apikey}}
+            bootstrapURLKeys={{key: googleapikey}}
             center={this.props.center}
             zoom={this.props.zoom}
           >
